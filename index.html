@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Dhanesh Sharma | Flutter Developer & AI Enthusiast</title>
+  <meta name="title" content="Dhanesh Sharma | Flutter Developer & AI Enthusiast">
+  <meta name="description" content="Flutter Developer specializing in cross-platform mobile apps with Dart, Firebase & AI integration. B.Tech CSE at IIIT Naya Raipur. Top 10 at Hackasol National Hackathon.">
+  <meta name="keywords" content="Flutter Developer, Dart, Firebase, Mobile App Development, AI Developer, IIIT Naya Raipur, Cross-platform Apps">
+  <meta name="author" content="Dhanesh Sharma">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dhanesh-sharma.dev">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dhanesh-sharma.dev">
+  <meta property="og:title" content="Dhanesh Sharma | Flutter Developer & AI Enthusiast">
+  <meta property="og:description" content="Flutter Developer specializing in cross-platform mobile apps with Dart, Firebase & AI integration. Top 10 at Hackasol National Hackathon.">
+  <meta property="og:image" content="https://dhanesh-sharma.dev/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Dhanesh Sharma Portfolio">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://dhanesh-sharma.dev">
+  <meta name="twitter:title" content="Dhanesh Sharma | Flutter Developer & AI Enthusiast">
+  <meta name="twitter:description" content="Flutter Developer specializing in cross-platform mobile apps with Dart, Firebase & AI integration.">
+  <meta name="twitter:image" content="https://dhanesh-sharma.dev/assets/images/og-image.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#5b7cfa">
+  <meta name="msapplication-TileColor" content="#0a0a0f">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+  
+  <!-- Fonts with display swap for better performance -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome with integrity check -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dhanesh Sharma",
+    "url": "https://dhanesh-sharma.dev",
+    "image": "https://dhanesh-sharma.dev/assets/images/profile.jpg",
+    "jobTitle": "Flutter Developer",
+    "worksFor": {
+      "@type": "EducationalOrganization",
+      "name": "IIIT Naya Raipur"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "IIIT Naya Raipur"
+    },
+    "knowsAbout": ["Flutter", "Dart", "Firebase", "Mobile App Development", "AI", "LangChain"],
+    "sameAs": [
+      "https://github.com/Dhanesh635",
+      "https://linkedin.com/in/dhanesh-sharma23/"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip to Content Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Page Loader -->
+  <div class="loader" role="status" aria-label="Loading page">
+    <div class="loader-content">
+      <div class="loader-logo" aria-hidden="true">DS</div>
+      <div class="loader-bar" aria-hidden="true">
+        <div class="loader-progress"></div>
+      </div>
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+    <i class="fas fa-sun" aria-hidden="true"></i>
+    <i class="fas fa-moon" aria-hidden="true"></i>
+  </button>
+
+  <!-- Floating Particles - Decorative -->
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- Gradient Blobs - Decorative -->
+  <div class="gradient-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <header class="header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <a href="#" class="logo" aria-label="Dhanesh Sharma - Home">Dhanesh Sharma</a>
+
+      <!-- Hamburger Menu -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links" role="menubar">
+        <li role="none"><a href="#about" role="menuitem">About</a></li>
+        <li role="none"><a href="#services" role="menuitem">Services</a></li>
+        <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
+        <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+        <li role="none"><a href="#certifications" role="menuitem">Certifications</a></li>
+        <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <span class="hero-badge"><span aria-hidden="true">🎓</span> B.Tech CSE @ IIIT Naya Raipur</span>
+        <h1 id="hero-title">
+          Flutter <span class="accent">Developer</span><br>
+          &amp; AI Enthusiast
+        </h1>
+        <p>
+          Building cross-platform mobile apps with Flutter, Dart &amp; Firebase. Strong in real-time systems, REST APIs, and AI-driven workflows.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+          <a href="Dhanesh_Resume.pdf" class="btn btn-outline" target="_blank" rel="noopener noreferrer" aria-label="Download Resume (opens in new tab)"><i class="fas fa-download" aria-hidden="true"></i> Resume</a>
+        </div>
+      </div>
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+        <span>Scroll Down</span>
+      </div>
+    </section>
+
+    <!-- Achievements Marquee -->
+    <div class="marquee-wrapper" role="marquee" aria-label="Achievements and highlights">
+      <div class="marquee-content">
+        <span class="marquee-item">🏆 Top 10 - Hackasol National Hackathon</span>
+        <span class="marquee-item">📱 Flutter & Dart Expert</span>
+        <span class="marquee-item">🎓 CGPA: 8.17 @ IIIT Naya Raipur</span>
+        <span class="marquee-item">👨‍🏫 250+ Workshop Attendees</span>
+        <span class="marquee-item">🤖 AI/ML Enthusiast</span>
+        <span class="marquee-item">🔥 Firebase Specialist</span>
+        <span class="marquee-item">🏆 Top 10 - Hackasol National Hackathon</span>
+        <span class="marquee-item">📱 Flutter & Dart Expert</span>
+        <span class="marquee-item">🎓 CGPA: 8.17 @ IIIT Naya Raipur</span>
+        <span class="marquee-item">👨‍🏫 250+ Workshop Attendees</span>
+        <span class="marquee-item">🤖 AI/ML Enthusiast</span>
+        <span class="marquee-item">🔥 Firebase Specialist</span>
+      </div>
+    </div>
+
+    <!-- Floating Tech Icons - Positioned at screen edges -->
+    <div class="floating-icons" aria-hidden="true">
+      <div class="floating-icon"><i class="fab fa-flutter"></i></div>
+      <div class="floating-icon"><i class="fab fa-python"></i></div>
+      <div class="floating-icon"><i class="fas fa-fire"></i></div>
+      <div class="floating-icon"><i class="fas fa-brain"></i></div>
+      <div class="floating-icon"><i class="fab fa-git-alt"></i></div>
+    </div>
+
+  <!-- About Section -->
+  <section id="about" class="about fade-in" aria-labelledby="about-title">
+    <div class="about-container">
+      <div class="about-header">
+        <span class="section-tag">About</span>
+        <h2 id="about-title">About <span class="accent">Me</span></h2>
+      </div>
+      <div class="about-content">
+        <div class="about-image">
+          <div class="image-wrapper">
+            <img src="assets/images/profile.JPG" alt="Dhanesh Sharma - Flutter Developer" class="profile-image" loading="lazy">
+            <div class="image-glow" aria-hidden="true"></div>
+            <div class="image-ring" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="about-text-content">
+          <p class="about-text">
+            I'm a Flutter Developer pursuing B.Tech in Computer Science at IIIT Naya Raipur (CGPA: 8.17). I specialize in building cross-platform mobile applications using Flutter, Dart, and Firebase with expertise in real-time systems, REST API integration, and authentication. Currently exploring AI-driven workflows with LangChain and Agentic AI.
+          </p>
+          <div class="stats" role="list" aria-label="Key statistics">
+            <div class="stat" role="listitem">
+              <span class="stat-number" data-target="8.17">0</span>
+              <span class="stat-label">CGPA</span>
+            </div>
+            <div class="stat" role="listitem">
+              <span class="stat-number">Top 10</span>
+              <span class="stat-label">Hackasol AI Track</span>
+            </div>
+            <div class="stat" role="listitem">
+              <span class="stat-number" data-target="250">0</span>
+              <span class="stat-label">Workshop Attendees</span>
+            </div>
+          </div>
+          <h3 class="skills-title">Tech Stack</h3>
+          <ul class="skills" role="list" aria-label="Technical skills">
+            <li><i class="fas fa-mobile-alt" aria-hidden="true"></i> Flutter</li>
+            <li><i class="fas fa-code" aria-hidden="true"></i> Dart</li>
+            <li><i class="fas fa-fire" aria-hidden="true"></i> Firebase</li>
+            <li><i class="fab fa-python" aria-hidden="true"></i> Python</li>
+            <li><i class="fas fa-brain" aria-hidden="true"></i> AI / LangChain</li>
+            <li><i class="fas fa-cogs" aria-hidden="true"></i> REST APIs</li>
+            <li><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Google Maps</li>
+            <li><i class="fab fa-git-alt" aria-hidden="true"></i> Git</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services / What I Do Section -->
+  <section id="services" class="services fade-in" aria-labelledby="services-title">
+    <div class="services-container">
+      <div class="section-header">
+        <span class="section-tag">Services</span>
+        <h2 id="services-title">What I <span class="accent">Do</span></h2>
+        <p class="section-desc">Specialized services I offer to bring your ideas to life.</p>
+      </div>
+
+      <div class="services-grid" role="list">
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Full-Stack App Development</h3>
+          <p>End-to-end cross-platform mobile applications with Flutter, Dart &amp; Firebase. Beautiful UI, smooth animations, and seamless backend integration.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check" aria-hidden="true"></i> iOS &amp; Android Apps</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Firebase &amp; REST APIs</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Real-time Database</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> State Management</li>
+          </ul>
+        </article>
+
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Agentic AI Development</h3>
+          <p>Building scalable, production-ready AI agents using LangChain &amp; LangGraph. From RAG pipelines to human-in-the-loop systems.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check" aria-hidden="true"></i> LangChain &amp; LangGraph</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> RAG Pipelines</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Multi-Agent Workflows</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> LangSmith Debugging</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline Section -->
+  <section id="experience" class="experience fade-in" aria-labelledby="experience-title">
+    <div class="experience-container">
+      <div class="section-header">
+        <span class="section-tag">Journey</span>
+        <h2 id="experience-title">My <span class="accent">Experience</span></h2>
+        <p class="section-desc">A timeline of my professional journey and achievements.</p>
+      </div>
+
+      <div class="timeline" role="list" aria-label="Career timeline">
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2024">2024 - Present</time>
+            <div class="timeline-card">
+              <span class="timeline-badge"><span aria-hidden="true">💼</span> Role</span>
+              <h3>PR Head — Money Matters</h3>
+              <h4>Financial Cell, IIIT Naya Raipur</h4>
+              <p>Led public relations initiatives in collaboration with Zerodha. Conducted finance workshops for 250+ students covering technical analysis, budgeting, investments, and mutual funds.</p>
+              <div class="timeline-tech" aria-label="Key skills">
+                <span>Leadership</span>
+                <span>Finance</span>
+                <span>Zerodha Varsity</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2024">2024 - 2028</time>
+            <div class="timeline-card">
+              <span class="timeline-badge"><span aria-hidden="true">🎓</span> Education</span>
+              <h3>B.Tech in Computer Science</h3>
+              <h4>IIIT Naya Raipur</h4>
+              <p>Pursuing Bachelor of Technology with a focus on Computer Science. Current CGPA: 8.17. Active participant in hackathons and tech communities.</p>
+              <div class="timeline-tech" aria-label="Highlights">
+                <span>CGPA: 8.17</span>
+                <span>CSE</span>
+                <span>Active Contributor</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects fade-in" aria-labelledby="projects-title">
+    <div class="projects-container">
+      <div class="section-header">
+        <span class="section-tag">Portfolio</span>
+        <h2 id="projects-title">Featured <span class="accent">Projects</span></h2>
+        <p class="section-desc">Here are some of my recent works that showcase my skills and expertise.</p>
+      </div>
+
+      <div class="project-grid" role="list">
+
+        <article class="project-card featured" role="listitem">
+          <span class="card-badge"><span aria-hidden="true">🏆</span> Top 10 - Hackasol</span>
+          <div class="project-preview">
+            <div class="preview-placeholder" role="img" aria-label="Lumen AI Finance Platform preview">
+              <i class="fas fa-wallet" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Lumen - AI Finance Platform</h3>
+            <p>
+              AI-powered personal finance platform using Google Gemini APIs, processing 1,000+ transactions per session with real-time anomaly detection and privacy-first pipeline.
+            </p>
+            <div class="tech-stack" aria-label="Technologies used">
+              <span class="tech">Flutter</span>
+              <span class="tech">Gemini AI</span>
+              <span class="tech">REST APIs</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/Dhanesh635" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Lumen on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+              <a href="#" class="card-link" aria-label="Watch Lumen demo video"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" role="listitem">
+          <div class="project-preview">
+            <div class="preview-placeholder" role="img" aria-label="Location Sharing App preview">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Real-Time Location Sharing</h3>
+            <p>
+              Flutter-based mobile app enabling secure real-time location sharing with Google Maps API and Firebase Firestore achieving live updates under 1s latency.
+            </p>
+            <div class="tech-stack" aria-label="Technologies used">
+              <span class="tech">Flutter</span>
+              <span class="tech">Firebase</span>
+              <span class="tech">Google Maps</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/Dhanesh635" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Location Sharing on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+              <a href="#" class="card-link" aria-label="View live demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" role="listitem">
+          <div class="project-preview">
+            <div class="preview-placeholder" role="img" aria-label="Smart Attendance Tracker preview">
+              <i class="fas fa-qrcode" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Smart Attendance Tracker</h3>
+            <p>
+              Anti-proxy attendance system with dual QR verification reducing proxy attempts by ~90%. Features role-based access and real-time attendance locking.
+            </p>
+            <div class="tech-stack" aria-label="Technologies used">
+              <span class="tech">Flutter</span>
+              <span class="tech">Firebase</span>
+              <span class="tech">QR Auth</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/Dhanesh635" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Attendance Tracker on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+              <a href="#" class="card-link" aria-label="View live demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" role="listitem">
+          <div class="project-preview">
+            <div class="preview-placeholder" role="img" aria-label="BlogAgentic AI preview">
+              <i class="fas fa-robot" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>BlogAgentic - AI Blog Generator</h3>
+            <p>
+              AI-powered blog generation API built with LangGraph and FastAPI. Uses Groq's LLM to generate blog titles and content from topics with multi-language translation support.
+            </p>
+            <div class="tech-stack" aria-label="Technologies used">
+              <span class="tech">Python</span>
+              <span class="tech">LangGraph</span>
+              <span class="tech">FastAPI</span>
+              <span class="tech">Groq</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/Dhanesh635/BlogAgentic" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View BlogAgentic on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+              <a href="#" class="card-link" aria-label="View live demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="certifications fade-in" aria-labelledby="certifications-title">
+    <div class="certifications-container">
+      <div class="section-header">
+        <span class="section-tag">Credentials</span>
+        <h2 id="certifications-title">My <span class="accent">Certifications</span></h2>
+        <p class="section-desc">Professional certifications that validate my expertise.</p>
+      </div>
+
+      <div class="cert-grid" role="list">
+        <article class="cert-card" role="listitem">
+          <div class="cert-icon" aria-hidden="true">
+            <i class="fab fa-flutter"></i>
+          </div>
+          <div class="cert-content">
+            <h3>The Complete Flutter Development Bootcamp with Dart</h3>
+            <p class="cert-issuer"><i class="fas fa-award" aria-hidden="true"></i> Udemy — Dr. Angela Yu</p>
+            <p class="cert-desc">Comprehensive Flutter and Dart development course covering app development from basics to advanced concepts.</p>
+            <a href="https://www.udemy.com/certificate/UC-db48b4b3-00f8-477b-95f0-08005184ef5c/" class="cert-link" target="_blank" rel="noopener noreferrer" aria-label="View Flutter Bootcamp credential">
+              <i class="fas fa-external-link-alt" aria-hidden="true"></i> View Credential
+            </a>
+          </div>
+          <div class="cert-badge" aria-hidden="true">
+            <i class="fas fa-certificate"></i>
+          </div>
+        </article>
+
+        <article class="cert-card" role="listitem">
+          <div class="cert-icon" aria-hidden="true">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="cert-content">
+            <h3>Complete Agentic AI Bootcamp with LangGraph and LangChain</h3>
+            <p class="cert-issuer"><i class="fas fa-award" aria-hidden="true"></i> Udemy — Krish Naik</p>
+            <p class="cert-desc">End-to-end Agentic AI systems covering LangChain, LangGraph, RAG pipelines, multi-agent workflows, and LangSmith debugging.</p>
+            <a href="https://www.udemy.com/certificate/UC-d4335bad-169a-452a-8375-0ff7bee39cb7/" class="cert-link" target="_blank" rel="noopener noreferrer" aria-label="View Agentic AI Bootcamp credential">
+              <i class="fas fa-external-link-alt" aria-hidden="true"></i> View Credential
+            </a>
+          </div>
+          <div class="cert-badge" aria-hidden="true">
+            <i class="fas fa-certificate"></i>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact fade-in" aria-labelledby="contact-title">
+    <div class="contact-container">
+      <span class="section-tag">Contact</span>
+      <h2 id="contact-title">Let's Work <span class="accent">Together</span></h2>
+      <p>
+        Have an idea, opportunity, or just want to connect?
+        Feel free to reach out.
+      </p>
+
+      <a href="mailto:dhaneshsharma635@gmail.com" class="btn btn-primary btn-large">
+        <i class="fas fa-envelope" aria-hidden="true"></i> Email Me
+      </a>
+
+      <nav class="social-links" aria-label="Social media links">
+        <a href="https://github.com/Dhanesh635" class="social-link" aria-label="Visit GitHub profile" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://linkedin.com/in/dhanesh-sharma23/" class="social-link" aria-label="Visit LinkedIn profile" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+        <a href="tel:+917573971984" class="social-link" aria-label="Call phone number">
+          <i class="fas fa-phone" aria-hidden="true"></i>
+        </a>
+        <a href="mailto:dhaneshsharma635@gmail.com" class="social-link" aria-label="Send email">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+      </nav>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content">
+      <p class="footer-logo" aria-label="Dhanesh Sharma">Dhanesh Sharma</p>
+      <p>Crafted with <span class="heart" aria-label="love">❤</span> and lots of <span aria-label="coffee">☕</span></p>
+      <p class="copyright">&copy; <span id="current-year">2026</span> Dhanesh Sharma. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Lenis Smooth Scroll Library -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
