@@ -756,6 +756,29 @@ html.lenis body {
     width: 100%;
 }
 
+/* Resume Button in Nav */
+.nav-resume-btn {
+    padding: 0.6rem 1.2rem !important;
+    background: var(--accent-gradient) !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    color: white !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(91, 124, 250, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.nav-resume-btn::before {
+    display: none !important;
+}
+
+.nav-resume-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(91, 124, 250, 0.4);
+}
+
 .nav-btn {
     padding: 0.7rem 1.5rem;
     background: var(--accent-gradient);
@@ -1451,6 +1474,10 @@ section {
 ======================================== */
 .about {
     background: var(--bg-secondary);
+    padding-top: clamp(100px, 15vh, 140px); /* Extra top padding since it's the first section */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .about-container {
@@ -1547,6 +1574,47 @@ section {
     margin-bottom: 2rem;
     font-size: 1.05rem;
     line-height: 1.8;
+}
+
+/* Main title in About section */
+.about-main-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-main-title .accent {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--accent-1);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--accent-1);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.about-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
 .stats {
@@ -2548,6 +2616,14 @@ section {
         order: -1;
     }
 
+    .about-main-title {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+
+    .about-buttons {
+        justify-content: center;
+    }
+
     .stats {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -2583,6 +2659,10 @@ section {
 
     .nav-links.active {
         right: 0;
+    }
+
+    .nav-resume-btn {
+        margin-top: 1rem;
     }
 
     .stats {
