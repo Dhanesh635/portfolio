@@ -94,6 +94,23 @@ document.addEventListener('DOMContentLoaded', () => {
     updateScrollProgress();
     
     // ========================================
+    // HERO ROLE ROTATION
+    // ========================================
+    const heroRoles = document.querySelectorAll('.hero-role');
+    if (heroRoles.length > 0) {
+        let currentRoleIndex = 0;
+        
+        function rotateRoles() {
+            heroRoles.forEach(role => role.classList.remove('active'));
+            currentRoleIndex = (currentRoleIndex + 1) % heroRoles.length;
+            heroRoles[currentRoleIndex].classList.add('active');
+        }
+        
+        // Rotate every 3 seconds
+        setInterval(rotateRoles, 3000);
+    }
+    
+    // ========================================
     // THEME TOGGLE (LIGHT/DARK MODE)
     // ========================================
     const themeToggle = document.getElementById('theme-toggle');
@@ -123,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update meta theme-color
         const metaThemeColor = document.querySelector('meta[name="theme-color"]');
         if (metaThemeColor) {
-            metaThemeColor.setAttribute('content', theme === 'light' ? '#f8f9fc' : '#5b7cfa');
+            metaThemeColor.setAttribute('content', theme === 'light' ? '#F2F0ED' : '#120F0D');
         }
     }
     
@@ -262,10 +279,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const colors = [
-            'rgba(91, 124, 250, 0.6)',
-            'rgba(140, 82, 255, 0.5)',
-            'rgba(0, 212, 255, 0.5)',
-            'rgba(255, 255, 255, 0.3)'
+            'rgba(176, 170, 164, 0.15)',
+            'rgba(122, 117, 111, 0.12)',
+            'rgba(237, 234, 230, 0.08)',
+            'rgba(176, 170, 164, 0.1)'
         ];
         const fragment = document.createDocumentFragment();
         const particleCount = window.innerWidth < 768 ? 12 : 25;

@@ -37,8 +37,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#5b7cfa">
-  <meta name="msapplication-TileColor" content="#0a0a0f">
+  <meta name="theme-color" content="#120F0D">
+  <meta name="msapplication-TileColor" content="#120F0D">
   
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,6 +147,42 @@
   </header>
 
   <main id="main-content">
+  <!-- Hero Section -->
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-image">
+          <div class="hero-image-wrapper">
+            <img src="assets/images/profile.JPG" alt="Dhanesh Sharma" class="hero-profile-img">
+            <div class="hero-image-glow" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="hero-text">
+          <span class="hero-greeting">Hello, I'm</span>
+          <h1 id="hero-title" class="hero-name">Dhanesh <span class="accent">Sharma</span></h1>
+          <p class="hero-tagline">Flutter Developer <span class="accent">&</span> AI Enthusiast</p>
+          <p class="hero-description">
+            I build mobile applications that work seamlessly across platforms. 
+            Currently exploring how AI can make products more intuitive and useful.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <span>View Projects</span>
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <span>Get in Touch</span>
+            </a>
+          </div>
+          <div class="hero-scroll-indicator" aria-hidden="true">
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- About Section -->
   <section id="about" class="about fade-in" aria-labelledby="about-title">
     <div class="about-container">
@@ -154,46 +190,36 @@
         <span class="section-tag">About</span>
         <h2 id="about-title">About <span class="accent">Me</span></h2>
       </div>
-      <div class="about-content">
-        <div class="about-image">
-          <div class="image-wrapper">
-            <img src="assets/images/profile.JPG" alt="Dhanesh Sharma - Flutter Developer" class="profile-image" loading="lazy">
-            <div class="image-glow" aria-hidden="true"></div>
-            <div class="image-ring" aria-hidden="true"></div>
+      <div class="about-content-clean">
+        <p class="about-intro">
+          I'm a <strong>Flutter Developer</strong> in my final year at <strong>IIIT Naya Raipur</strong>. 
+          My work focuses on building mobile applications that feel native on both iOS and Android—clean interfaces, responsive performance, and thoughtful architecture.
+        </p>
+        <p class="about-intro">
+          Lately, I've been drawn to <strong>AI and agentic systems</strong>—exploring LangChain, LangGraph, and RAG pipelines to understand how intelligent automation can solve real problems.
+        </p>
+        
+        <div class="about-stats">
+          <div class="about-stat-item">
+            <span class="about-stat-number">8.17</span>
+            <span class="about-stat-label">CGPA</span>
+          </div>
+          <div class="about-stat-item">
+            <span class="about-stat-number">Top 10</span>
+            <span class="about-stat-label">Hackasol '24</span>
           </div>
         </div>
-        <div class="about-text-content">
-          <h1 class="about-main-title">Flutter <span class="accent">Developer</span> &amp; AI Enthusiast</h1>
-          <span class="about-badge"><span aria-hidden="true">🎓</span> B.Tech CSE @ IIIT Naya Raipur</span>
-          <p class="about-text">
-            I'm a Flutter Developer pursuing B.Tech in Computer Science at IIIT Naya Raipur (CGPA: 8.17). I specialize in building cross-platform mobile applications using Flutter, Dart, and Firebase with expertise in real-time systems, REST API integration, and authentication. Currently exploring AI-driven workflows with LangChain and Agentic AI.
-          </p>
-          <div class="stats" role="list" aria-label="Key statistics">
-            <div class="stat" role="listitem">
-              <span class="stat-number" data-target="8.17">0</span>
-              <span class="stat-label">CGPA</span>
-            </div>
-            <div class="stat" role="listitem">
-              <span class="stat-number">Top 10</span>
-              <span class="stat-label">Hackasol AI Track</span>
-            </div>
-            <div class="stat" role="listitem">
-              <span class="stat-number" data-target="250">0</span>
-              <span class="stat-label">Workshop Attendees</span>
-            </div>
-          </div>
-          <h3 class="skills-title">Tech Stack</h3>
-          <ul class="skills" role="list" aria-label="Technical skills">
-            <li><i class="fas fa-mobile-alt" aria-hidden="true"></i> Flutter</li>
-            <li><i class="fas fa-code" aria-hidden="true"></i> Dart</li>
-            <li><i class="fas fa-fire" aria-hidden="true"></i> Firebase</li>
-            <li><i class="fab fa-python" aria-hidden="true"></i> Python</li>
-            <li><i class="fas fa-brain" aria-hidden="true"></i> AI / LangChain</li>
-            <li><i class="fas fa-cogs" aria-hidden="true"></i> REST APIs</li>
-            <li><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Google Maps</li>
-            <li><i class="fab fa-git-alt" aria-hidden="true"></i> Git</li>
-          </ul>
 
+        <h3 class="about-skills-title">Tech Stack</h3>
+        <div class="about-skills-grid">
+          <div class="skill-tag"><i class="fas fa-mobile-alt" aria-hidden="true"></i> Flutter</div>
+          <div class="skill-tag"><i class="fas fa-code" aria-hidden="true"></i> Dart</div>
+          <div class="skill-tag"><i class="fas fa-fire" aria-hidden="true"></i> Firebase</div>
+          <div class="skill-tag"><i class="fab fa-python" aria-hidden="true"></i> Python</div>
+          <div class="skill-tag"><i class="fas fa-brain" aria-hidden="true"></i> AI / LangChain</div>
+          <div class="skill-tag"><i class="fas fa-cogs" aria-hidden="true"></i> REST APIs</div>
+          <div class="skill-tag"><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Google Maps</div>
+          <div class="skill-tag"><i class="fab fa-git-alt" aria-hidden="true"></i> Git</div>
         </div>
       </div>
     </div>
@@ -205,7 +231,7 @@
       <div class="section-header">
         <span class="section-tag">Services</span>
         <h2 id="services-title">What I <span class="accent">Do</span></h2>
-        <p class="section-desc">Specialized services I offer to bring your ideas to life.</p>
+        <p class="section-desc">I focus on two areas: mobile development and AI systems.</p>
       </div>
 
       <div class="services-grid" role="list">
@@ -213,13 +239,13 @@
           <div class="service-icon" aria-hidden="true">
             <i class="fas fa-mobile-alt"></i>
           </div>
-          <h3>Full-Stack App Development</h3>
-          <p>End-to-end cross-platform mobile applications with Flutter, Dart &amp; Firebase. Beautiful UI, smooth animations, and seamless backend integration.</p>
+          <h3>Mobile App Development</h3>
+          <p>Cross-platform applications built with Flutter and Firebase. I write code that's maintainable, test it properly, and ship it on time.</p>
           <ul class="service-features">
-            <li><i class="fas fa-check" aria-hidden="true"></i> iOS &amp; Android Apps</li>
-            <li><i class="fas fa-check" aria-hidden="true"></i> Firebase &amp; REST APIs</li>
-            <li><i class="fas fa-check" aria-hidden="true"></i> Real-time Database</li>
-            <li><i class="fas fa-check" aria-hidden="true"></i> State Management</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Single codebase for iOS & Android</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Firebase backend integration</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Real-time data & notifications</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Clean architecture patterns</li>
           </ul>
         </article>
 
@@ -227,13 +253,13 @@
           <div class="service-icon" aria-hidden="true">
             <i class="fas fa-brain"></i>
           </div>
-          <h3>Agentic AI Development</h3>
-          <p>Building scalable, production-ready AI agents using LangChain &amp; LangGraph. From RAG pipelines to human-in-the-loop systems.</p>
+          <h3>AI Agent Development</h3>
+          <p>Building systems that can search, reason, and act. From document retrieval to multi-step workflows, I work with the tools that make AI useful.</p>
           <ul class="service-features">
-            <li><i class="fas fa-check" aria-hidden="true"></i> LangChain &amp; LangGraph</li>
-            <li><i class="fas fa-check" aria-hidden="true"></i> RAG Pipelines</li>
-            <li><i class="fas fa-check" aria-hidden="true"></i> Multi-Agent Workflows</li>
-            <li><i class="fas fa-check" aria-hidden="true"></i> LangSmith Debugging</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> LangChain & LangGraph pipelines</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> RAG with vector databases</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Tool-calling agents</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> LangSmith observability</li>
           </ul>
         </article>
       </div>
@@ -244,25 +270,25 @@
   <section id="experience" class="experience fade-in" aria-labelledby="experience-title">
     <div class="experience-container">
       <div class="section-header">
-        <span class="section-tag">Journey</span>
-        <h2 id="experience-title">My <span class="accent">Experience</span></h2>
-        <p class="section-desc">A timeline of my professional journey and achievements.</p>
+        <span class="section-tag">Experience</span>
+        <h2 id="experience-title">My <span class="accent">Journey</span></h2>
+        <p class="section-desc">Where I've been and what I've learned along the way.</p>
       </div>
 
       <div class="timeline" role="list" aria-label="Career timeline">
         <article class="timeline-item" role="listitem">
           <div class="timeline-dot" aria-hidden="true"></div>
           <div class="timeline-content">
-            <time class="timeline-date" datetime="2024">2024 - Present</time>
+            <time class="timeline-date" datetime="2024">2024 — Present</time>
             <div class="timeline-card">
-              <span class="timeline-badge"><span aria-hidden="true">💼</span> Role</span>
+              <span class="timeline-badge"><span aria-hidden="true">💼</span> Leadership</span>
               <h3>PR Head — Money Matters</h3>
               <h4>Financial Cell, IIIT Naya Raipur</h4>
-              <p>Led public relations initiatives in collaboration with Zerodha. Conducted finance workshops for 250+ students covering technical analysis, budgeting, investments, and mutual funds.</p>
+              <p>I lead outreach for our finance club, building partnerships with organizations like Zerodha. I've organized workshops for 250+ students on investment basics and portfolio management.</p>
               <div class="timeline-tech" aria-label="Key skills">
-                <span>Leadership</span>
-                <span>Finance</span>
-                <span>Zerodha Varsity</span>
+                <span>Public Speaking</span>
+                <span>Event Management</span>
+                <span>Financial Literacy</span>
               </div>
             </div>
           </div>
@@ -271,16 +297,16 @@
         <article class="timeline-item" role="listitem">
           <div class="timeline-dot" aria-hidden="true"></div>
           <div class="timeline-content">
-            <time class="timeline-date" datetime="2024">2024 - 2028</time>
+            <time class="timeline-date" datetime="2022">2022 — 2026</time>
             <div class="timeline-card">
               <span class="timeline-badge"><span aria-hidden="true">🎓</span> Education</span>
               <h3>B.Tech in Computer Science</h3>
               <h4>IIIT Naya Raipur</h4>
-              <p>Pursuing Bachelor of Technology with a focus on Computer Science. Current CGPA: 8.17. Active participant in hackathons and tech communities.</p>
+              <p>Final year undergraduate focused on mobile development and AI. Reached top 10 at Hackasol 2024 in the AI track. I spend most of my time building projects and contributing to open-source.</p>
               <div class="timeline-tech" aria-label="Highlights">
                 <span>CGPA: 8.17</span>
-                <span>CSE</span>
-                <span>Active Contributor</span>
+                <span>Hackasol Top 10</span>
+                <span>Tech Lead</span>
               </div>
             </div>
           </div>
@@ -293,33 +319,32 @@
   <section id="projects" class="projects fade-in" aria-labelledby="projects-title">
     <div class="projects-container">
       <div class="section-header">
-        <span class="section-tag">Portfolio</span>
-        <h2 id="projects-title">Featured <span class="accent">Projects</span></h2>
-        <p class="section-desc">Here are some of my recent works that showcase my skills and expertise.</p>
+        <span class="section-tag">Projects</span>
+        <h2 id="projects-title">Selected <span class="accent">Work</span></h2>
+        <p class="section-desc">A few projects I've built that I'm proud of.</p>
       </div>
 
       <div class="project-grid" role="list">
 
         <article class="project-card featured" role="listitem">
-          <span class="card-badge"><span aria-hidden="true">🏆</span> Top 10 - Hackasol</span>
+          <span class="card-badge"><span aria-hidden="true">🏆</span> Hackasol Top 10</span>
           <div class="project-preview">
             <div class="preview-placeholder" role="img" aria-label="Lumen AI Finance Platform preview">
               <i class="fas fa-wallet" aria-hidden="true"></i>
             </div>
           </div>
           <div class="project-info">
-            <h3>Lumen - AI Finance Platform</h3>
+            <h3>Lumen — AI Finance Platform</h3>
             <p>
-              AI-powered personal finance platform using Google Gemini APIs, processing 1,000+ transactions per session with real-time anomaly detection and privacy-first pipeline.
+              A personal finance app powered by Google Gemini. It analyzes transactions, detects anomalies, and surfaces spending insights—all while keeping data private.
             </p>
             <div class="tech-stack" aria-label="Technologies used">
               <span class="tech">Flutter</span>
               <span class="tech">Gemini AI</span>
-              <span class="tech">REST APIs</span>
+              <span class="tech">Firebase</span>
             </div>
             <div class="card-links">
               <a href="https://github.com/Dhanesh635" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Lumen on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-              <a href="#" class="card-link" aria-label="Watch Lumen demo video"><i class="fab fa-youtube" aria-hidden="true"></i></a>
             </div>
           </div>
         </article>
@@ -331,9 +356,9 @@
             </div>
           </div>
           <div class="project-info">
-            <h3>Real-Time Location Sharing</h3>
+            <h3>Live Location Tracker</h3>
             <p>
-              Flutter-based mobile app enabling secure real-time location sharing with Google Maps API and Firebase Firestore achieving live updates under 1s latency.
+              Real-time location sharing with sub-second updates. Built for tracking friends, with geofencing alerts and offline caching for spotty connections.
             </p>
             <div class="tech-stack" aria-label="Technologies used">
               <span class="tech">Flutter</span>
@@ -341,8 +366,7 @@
               <span class="tech">Google Maps</span>
             </div>
             <div class="card-links">
-              <a href="https://github.com/Dhanesh635" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Location Sharing on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-              <a href="#" class="card-link" aria-label="View live demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+              <a href="https://github.com/Dhanesh635" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Location Tracker on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
             </div>
           </div>
         </article>
@@ -354,9 +378,9 @@
             </div>
           </div>
           <div class="project-info">
-            <h3>Smart Attendance Tracker</h3>
+            <h3>Smart Attendance System</h3>
             <p>
-              Anti-proxy attendance system with dual QR verification reducing proxy attempts by ~90%. Features role-based access and real-time attendance locking.
+              An anti-proxy attendance solution using dual QR verification. Reduced proxy attempts by 90% with time-locked windows and role-based access.
             </p>
             <div class="tech-stack" aria-label="Technologies used">
               <span class="tech">Flutter</span>
@@ -364,8 +388,7 @@
               <span class="tech">QR Auth</span>
             </div>
             <div class="card-links">
-              <a href="https://github.com/Dhanesh635" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Attendance Tracker on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-              <a href="#" class="card-link" aria-label="View live demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+              <a href="https://github.com/Dhanesh635" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Attendance System on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
             </div>
           </div>
         </article>
@@ -377,19 +400,17 @@
             </div>
           </div>
           <div class="project-info">
-            <h3>BlogAgentic - AI Blog Generator</h3>
+            <h3>BlogAgentic — AI Writer</h3>
             <p>
-              AI-powered blog generation API built with LangGraph and FastAPI. Uses Groq's LLM to generate blog titles and content from topics with multi-language translation support.
+              An agentic AI system for automated blog generation. Uses LangGraph for orchestration and Groq for fast inference, with multi-language support.
             </p>
             <div class="tech-stack" aria-label="Technologies used">
               <span class="tech">Python</span>
               <span class="tech">LangGraph</span>
               <span class="tech">FastAPI</span>
-              <span class="tech">Groq</span>
             </div>
             <div class="card-links">
               <a href="https://github.com/Dhanesh635/BlogAgentic" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View BlogAgentic on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-              <a href="#" class="card-link" aria-label="View live demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
             </div>
           </div>
         </article>
@@ -402,9 +423,9 @@
   <section id="certifications" class="certifications fade-in" aria-labelledby="certifications-title">
     <div class="certifications-container">
       <div class="section-header">
-        <span class="section-tag">Credentials</span>
-        <h2 id="certifications-title">My <span class="accent">Certifications</span></h2>
-        <p class="section-desc">Professional certifications that validate my expertise.</p>
+        <span class="section-tag">Certifications</span>
+        <h2 id="certifications-title"><span class="accent">Credentials</span></h2>
+        <p class="section-desc">Courses I've completed that shaped my skills.</p>
       </div>
 
       <div class="cert-grid" role="list">
@@ -449,14 +470,14 @@
   <section id="contact" class="contact fade-in" aria-labelledby="contact-title">
     <div class="contact-container">
       <span class="section-tag">Contact</span>
-      <h2 id="contact-title">Let's Work <span class="accent">Together</span></h2>
+      <h2 id="contact-title">Let's <span class="accent">Talk</span></h2>
       <p>
-        Have an idea, opportunity, or just want to connect?
-        Feel free to reach out.
+        I'm open to internships, freelance projects, and interesting collaborations. 
+        If you have something in mind, I'd like to hear about it.
       </p>
 
       <a href="mailto:dhaneshsharma635@gmail.com" class="btn btn-primary btn-large">
-        <i class="fas fa-envelope" aria-hidden="true"></i> Email Me
+        <i class="fas fa-envelope" aria-hidden="true"></i> Send Email
       </a>
 
       <nav class="social-links" aria-label="Social media links">
@@ -480,8 +501,7 @@
   <footer class="footer" role="contentinfo">
     <div class="footer-content">
       <p class="footer-logo" aria-label="Dhanesh Sharma">Dhanesh Sharma</p>
-      <p>Crafted with <span class="heart" aria-label="love">❤</span> and lots of <span aria-label="coffee">☕</span></p>
-      <p class="copyright">&copy; <span id="current-year">2026</span> Dhanesh Sharma. All rights reserved.</p>
+      <p class="copyright">&copy; <span id="current-year">2026</span> — Designed & Built by Dhanesh Sharma</p>
     </div>
   </footer>
 
