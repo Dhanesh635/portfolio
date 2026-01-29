@@ -19,6 +19,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
+    // Utility: Debounce function for performance
+    function debounce(func, wait = 10, immediate = false) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                timeout = null;
+                if (!immediate) func.apply(this, args);
+            };
+            const callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(this, args);
+        };
+    }
+    
+    // Utility: Throttle function for scroll events
+    function throttle(func, limit = 16) {
+        let inThrottle;
+        return function(...args) {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+
     // ========================================
     // LENIS SMOOTH SCROLL INITIALIZATION
     // ========================================
@@ -110,85 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(rotateRoles, 3000);
     }
     
-    // ========================================
-    // THEME TOGGLE (LIGHT/DARK MODE)
-    // ========================================
-    const themeToggle = document.getElementById('theme-toggle');
-    const root = document.documentElement;
-    
-    // Get saved theme or system preference
-    function getPreferredTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) return savedTheme;
-        
-        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-    }
-    
-    // Apply theme
-    function applyTheme(theme) {
-        // Use View Transitions API if available
-        if (document.startViewTransition && !prefersReducedMotion) {
-            document.startViewTransition(() => {
-                root.setAttribute('data-theme', theme);
-            });
-        } else {
-            root.setAttribute('data-theme', theme);
-        }
-        
-        localStorage.setItem('theme', theme);
-        
-        // Update meta theme-color
-        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-        if (metaThemeColor) {
-            metaThemeColor.setAttribute('content', theme === 'light' ? '#F2F0ED' : '#120F0D');
-        }
-    }
-    
-    // Initialize theme
-    applyTheme(getPreferredTheme());
-    
-    // Toggle theme on button click
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = root.getAttribute('data-theme') || getPreferredTheme();
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            applyTheme(newTheme);
-        });
-    }
-    
-    // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) {
-            applyTheme(e.matches ? 'light' : 'dark');
-        }
-    });
-    
-    // Utility: Debounce function for performance
-    function debounce(func, wait = 10, immediate = false) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                timeout = null;
-                if (!immediate) func.apply(this, args);
-            };
-            const callNow = immediate && !timeout;
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-            if (callNow) func.apply(this, args);
-        };
-    }
-    
-    // Utility: Throttle function for scroll events
-    function throttle(func, limit = 16) {
-        let inThrottle;
-        return function(...args) {
-            if (!inThrottle) {
-                func.apply(this, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
-            }
-        };
-    }
+    // Theme is fixed - no toggle functionality needed
 
     // Update copyright year dynamically
     const yearElement = document.getElementById('current-year');
@@ -473,6 +422,107 @@ document.addEventListener('DOMContentLoaded', () => {
         timelineObserver.observe(item);
     });
 
+    // ========================================
+    // ACTIVE NAVIGATION ON SCROLL
+    // ========================================
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksAll = document.querySelectorAll('.nav-links a[href^="#"]');
+    
+    if (sections.length > 0 && navLinksAll.length > 0) {
+        // Create a map of section IDs to nav links
+        const navLinkMap = new Map();
+        navLinksAll.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                navLinkMap.set(href.substring(1), link);
+            }
+        });
+        
+        // Track which section is currently active
+        let currentActiveSection = null;
+        
+        function setActiveNavLink(sectionId) {
+            if (currentActiveSection === sectionId) return;
+            
+            currentActiveSection = sectionId;
+            
+            // Remove active class and aria-current from all nav links
+            navLinksAll.forEach(link => {
+                link.classList.remove('active');
+                link.removeAttribute('aria-current');
+            });
+            
+            // Add active class to matching nav link
+            const activeLink = navLinkMap.get(sectionId);
+            if (activeLink) {
+                activeLink.classList.add('active');
+                activeLink.setAttribute('aria-current', 'true');
+            }
+        }
+        
+        // Intersection Observer for sections
+        const navObserverOptions = {
+            root: null,
+            rootMargin: '-20% 0px -60% 0px', // Trigger when section is in upper-middle of viewport
+            threshold: 0
+        };
+        
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveNavLink(entry.target.id);
+                }
+            });
+        }, navObserverOptions);
+        
+        // Observe all sections
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+        
+        // Handle click navigation - immediately update active state
+        navLinksAll.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const sectionId = href.substring(1);
+                    setActiveNavLink(sectionId);
+                }
+            });
+        });
+        
+        // Set initial active state on page load based on hash or scroll position
+        function setInitialActiveState() {
+            const hash = window.location.hash;
+            if (hash && navLinkMap.has(hash.substring(1))) {
+                setActiveNavLink(hash.substring(1));
+            } else {
+                // Find which section is currently in view
+                let foundActive = false;
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const viewportHeight = window.innerHeight;
+                    // Check if section is in the upper portion of the viewport
+                    if (!foundActive && rect.top <= viewportHeight * 0.4 && rect.bottom > viewportHeight * 0.2) {
+                        setActiveNavLink(section.id);
+                        foundActive = true;
+                    }
+                });
+            }
+        }
+        
+        // Run on load
+        setInitialActiveState();
+        
+        // Handle hash changes (back/forward navigation)
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash;
+            if (hash && navLinkMap.has(hash.substring(1))) {
+                setActiveNavLink(hash.substring(1));
+            }
+        });
+    }
+
     // Stats Counter Animation (respects reduced motion)
     function animateCounters() {
         const counters = document.querySelectorAll('.stat-number[data-target]');
@@ -575,32 +625,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, { passive: true });
     });
-
-    // Active Navigation Link (debounced)
-    const sections = document.querySelectorAll('section[id]');
-    
-    const highlightNavLink = debounce(() => {
-        const scrollPos = window.scrollY + 150;
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.classList.remove('active');
-                    link.removeAttribute('aria-current');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                        link.setAttribute('aria-current', 'true');
-                    }
-                });
-            }
-        });
-    }, 50);
-    
-    window.addEventListener('scroll', highlightNavLink, { passive: true });
 
     // Parallax Effect for Blobs (throttled, respects reduced motion)
     if (!prefersReducedMotion) {
@@ -713,6 +737,161 @@ document.addEventListener('DOMContentLoaded', () => {
             placeholder.classList.add('loaded');
         }, 800 + Math.random() * 400);
     });
+
+    // ========================================
+    // PROJECT CAROUSEL WITH AUTO-SLIDE
+    // ========================================
+    const projectCarousel = document.getElementById('project-carousel');
+    const projectShowcase = document.querySelector('.project-showcase');
+    const projectPrev = document.getElementById('project-prev');
+    const projectNext = document.getElementById('project-next');
+    const projectDots = document.querySelectorAll('.project-dot');
+    
+    if (projectCarousel && projectPrev && projectNext) {
+        const projects = projectCarousel.querySelectorAll('.featured-project');
+        let currentProject = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        // Auto-slide configuration
+        const autoSlideInterval = 3000; // 3 seconds
+        let autoSlideTimer = null;
+        let isHovering = false;
+
+        function showProject(index) {
+            // Clamp index to valid range (loop)
+            if (index < 0) index = projects.length - 1;
+            if (index >= projects.length) index = 0;
+            
+            currentProject = index;
+            
+            // Update visibility with proper classes
+            projects.forEach((project, i) => {
+                if (i === currentProject) {
+                    project.hidden = false;
+                    project.classList.add('active');
+                } else {
+                    project.hidden = true;
+                    project.classList.remove('active');
+                }
+            });
+            
+            // Update dots
+            projectDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentProject);
+                dot.setAttribute('aria-selected', i === currentProject);
+            });
+            
+            // Update ARIA labels
+            projects.forEach((project, i) => {
+                project.setAttribute('aria-label', `Project ${i + 1} of ${projects.length}`);
+            });
+        }
+        
+        // Auto-slide functions
+        function startAutoSlide() {
+            stopAutoSlide();
+            if (!isHovering) {
+                autoSlideTimer = setInterval(() => {
+                    showProject(currentProject + 1);
+                }, autoSlideInterval);
+            }
+        }
+        
+        function stopAutoSlide() {
+            if (autoSlideTimer) {
+                clearInterval(autoSlideTimer);
+                autoSlideTimer = null;
+            }
+        }
+        
+        function resetAutoSlide() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
+        
+        // Pause on hover (desktop)
+        if (projectShowcase) {
+            projectShowcase.addEventListener('mouseenter', () => {
+                isHovering = true;
+                stopAutoSlide();
+            }, { passive: true });
+            
+            projectShowcase.addEventListener('mouseleave', () => {
+                isHovering = false;
+                startAutoSlide();
+            }, { passive: true });
+        }
+        
+        // Arrow navigation (resets auto-slide timer)
+        projectPrev.addEventListener('click', () => {
+            showProject(currentProject - 1);
+            resetAutoSlide();
+        });
+        
+        projectNext.addEventListener('click', () => {
+            showProject(currentProject + 1);
+            resetAutoSlide();
+        });
+        
+        // Dot navigation (resets auto-slide timer)
+        projectDots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                showProject(i);
+                resetAutoSlide();
+            });
+        });
+        
+        // Keyboard navigation (resets auto-slide timer)
+        projectCarousel.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                showProject(currentProject - 1);
+                resetAutoSlide();
+            } else if (e.key === 'ArrowRight') {
+                showProject(currentProject + 1);
+                resetAutoSlide();
+            }
+        });
+        
+        // Touch/Swipe support for mobile (resets auto-slide timer)
+        projectCarousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        projectCarousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next
+                    showProject(currentProject + 1);
+                } else {
+                    // Swipe right - prev
+                    showProject(currentProject - 1);
+                }
+                resetAutoSlide();
+            }
+        }
+        
+        // Initialize first project and start auto-slide
+        showProject(0);
+        startAutoSlide();
+        
+        // Pause auto-slide when page is not visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoSlide();
+            } else {
+                startAutoSlide();
+            }
+        });
+    }
 
     // Console Easter Egg
     console.log('%c🚀 Welcome to Dhanesh\'s Portfolio!', 'color: #5b7cfa; font-size: 20px; font-weight: bold;');

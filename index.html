@@ -37,8 +37,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#120F0D">
-  <meta name="msapplication-TileColor" content="#120F0D">
+  <meta name="theme-color" content="#3D2B1F">
+  <meta name="msapplication-TileColor" content="#3D2B1F">
   
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -106,12 +106,6 @@
   <div class="scroll-progress" aria-hidden="true">
     <div class="scroll-progress-bar"></div>
   </div>
-
-  <!-- Theme Toggle Button -->
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
-    <i class="fas fa-sun" aria-hidden="true"></i>
-    <i class="fas fa-moon" aria-hidden="true"></i>
-  </button>
 
   <!-- Floating Particles - Decorative -->
   <div class="particles" id="particles" aria-hidden="true"></div>
@@ -212,14 +206,32 @@
 
         <h3 class="about-skills-title">Tech Stack</h3>
         <div class="about-skills-grid">
-          <div class="skill-tag"><i class="fas fa-mobile-alt" aria-hidden="true"></i> Flutter</div>
-          <div class="skill-tag"><i class="fas fa-code" aria-hidden="true"></i> Dart</div>
-          <div class="skill-tag"><i class="fas fa-fire" aria-hidden="true"></i> Firebase</div>
-          <div class="skill-tag"><i class="fab fa-python" aria-hidden="true"></i> Python</div>
-          <div class="skill-tag"><i class="fas fa-brain" aria-hidden="true"></i> AI / LangChain</div>
-          <div class="skill-tag"><i class="fas fa-cogs" aria-hidden="true"></i> REST APIs</div>
-          <div class="skill-tag"><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Google Maps</div>
-          <div class="skill-tag"><i class="fab fa-git-alt" aria-hidden="true"></i> Git</div>
+          <!-- Core Stack -->
+          <div class="skill-group">
+            <span class="skill-group-label">Core</span>
+            <div class="skill-group-items">
+              <div class="skill-tag skill-tag--core"><i class="fas fa-mobile-alt" aria-hidden="true"></i> Flutter</div>
+              <div class="skill-tag skill-tag--core"><i class="fas fa-code" aria-hidden="true"></i> Dart</div>
+              <div class="skill-tag skill-tag--core"><i class="fas fa-fire" aria-hidden="true"></i> Firebase</div>
+            </div>
+          </div>
+          <!-- Backend & Tools -->
+          <div class="skill-group">
+            <span class="skill-group-label">Tools</span>
+            <div class="skill-group-items">
+              <div class="skill-tag skill-tag--tools"><i class="fas fa-cogs" aria-hidden="true"></i> REST APIs</div>
+              <div class="skill-tag skill-tag--tools"><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Google Maps</div>
+              <div class="skill-tag skill-tag--tools"><i class="fab fa-git-alt" aria-hidden="true"></i> Git</div>
+            </div>
+          </div>
+          <!-- AI & Data -->
+          <div class="skill-group">
+            <span class="skill-group-label">AI</span>
+            <div class="skill-group-items">
+              <div class="skill-tag skill-tag--ai"><i class="fab fa-python" aria-hidden="true"></i> Python</div>
+              <div class="skill-tag skill-tag--ai"><i class="fas fa-brain" aria-hidden="true"></i> LangChain</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -324,97 +336,104 @@
         <p class="section-desc">A few projects I've built that I'm proud of.</p>
       </div>
 
-      <div class="project-grid" role="list">
+      <!-- Featured Project Carousel -->
+      <div class="project-showcase" role="region" aria-label="Project showcase" aria-roledescription="carousel">
+        <!-- Carousel wrapper with navigation -->
+        <div class="project-carousel-wrapper">
+          <button class="project-nav project-nav--prev" aria-label="Previous project" id="project-prev">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+          </button>
 
-        <article class="project-card featured" role="listitem">
-          <span class="card-badge"><span aria-hidden="true">🏆</span> Hackasol Top 10</span>
-          <div class="project-preview">
-            <div class="preview-placeholder" role="img" aria-label="Lumen AI Finance Platform preview">
-              <i class="fas fa-wallet" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>Lumen — AI Finance Platform</h3>
-            <p>
-              A personal finance app powered by Google Gemini. It analyzes transactions, detects anomalies, and surfaces spending insights—all while keeping data private.
-            </p>
-            <div class="tech-stack" aria-label="Technologies used">
-              <span class="tech">Flutter</span>
-              <span class="tech">Gemini AI</span>
-              <span class="tech">Firebase</span>
-            </div>
-            <div class="card-links">
-              <a href="https://github.com/Dhanesh635" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Lumen on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </article>
+          <div class="project-carousel" id="project-carousel">
+            <!-- Project 1: Lumen -->
+            <article class="featured-project active" data-project="0" aria-label="Project 1 of 4">
+              <div class="featured-project-content">
+                <span class="featured-badge"><span aria-hidden="true">🏆</span> Hackasol Top 10</span>
+                <h3 class="featured-title">Lumen — AI Finance Platform</h3>
+                <p class="featured-description">
+                  A personal finance app powered by Google Gemini. It analyzes transactions, detects anomalies, and surfaces spending insights—all while keeping data private. Built with Flutter for seamless cross-platform performance and Firebase for real-time data sync.
+                </p>
+                <div class="featured-tech">
+                  <span>Flutter</span>
+                  <span>Gemini AI</span>
+                  <span>Firebase</span>
+                </div>
+                <a href="https://github.com/Dhanesh635" class="featured-link" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
+                </a>
+              </div>
+            </article>
 
-        <article class="project-card" role="listitem">
-          <div class="project-preview">
-            <div class="preview-placeholder" role="img" aria-label="Location Sharing App preview">
-              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>Live Location Tracker</h3>
-            <p>
-              Real-time location sharing with sub-second updates. Built for tracking friends, with geofencing alerts and offline caching for spotty connections.
-            </p>
-            <div class="tech-stack" aria-label="Technologies used">
-              <span class="tech">Flutter</span>
-              <span class="tech">Firebase</span>
-              <span class="tech">Google Maps</span>
-            </div>
-            <div class="card-links">
-              <a href="https://github.com/Dhanesh635" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Location Tracker on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </article>
+            <!-- Project 2: Location Tracker -->
+            <article class="featured-project" data-project="1" aria-label="Project 2 of 4" hidden>
+              <div class="featured-project-content">
+                <span class="featured-badge-spacer" aria-hidden="true"></span>
+                <h3 class="featured-title">Live Location Tracker</h3>
+                <p class="featured-description">
+                  Real-time location sharing with sub-second updates. Built for tracking friends and family, featuring geofencing alerts that notify when someone enters or leaves designated areas. Includes offline caching for reliable operation even with spotty connections.
+                </p>
+                <div class="featured-tech">
+                  <span>Flutter</span>
+                  <span>Firebase</span>
+                  <span>Google Maps</span>
+                </div>
+                <a href="https://github.com/Dhanesh635" class="featured-link" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
+                </a>
+              </div>
+            </article>
 
-        <article class="project-card" role="listitem">
-          <div class="project-preview">
-            <div class="preview-placeholder" role="img" aria-label="Smart Attendance Tracker preview">
-              <i class="fas fa-qrcode" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>Smart Attendance System</h3>
-            <p>
-              An anti-proxy attendance solution using dual QR verification. Reduced proxy attempts by 90% with time-locked windows and role-based access.
-            </p>
-            <div class="tech-stack" aria-label="Technologies used">
-              <span class="tech">Flutter</span>
-              <span class="tech">Firebase</span>
-              <span class="tech">QR Auth</span>
-            </div>
-            <div class="card-links">
-              <a href="https://github.com/Dhanesh635" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Attendance System on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </article>
+            <!-- Project 3: Attendance System -->
+            <article class="featured-project" data-project="2" aria-label="Project 3 of 4" hidden>
+              <div class="featured-project-content">
+                <span class="featured-badge-spacer" aria-hidden="true"></span>
+                <h3 class="featured-title">Smart Attendance System</h3>
+                <p class="featured-description">
+                  An anti-proxy attendance solution using dual QR verification. The system reduced proxy attempts by 90% through time-locked verification windows and role-based access control. Features include real-time attendance tracking and automated reporting for administrators.
+                </p>
+                <div class="featured-tech">
+                  <span>Flutter</span>
+                  <span>Firebase</span>
+                  <span>QR Auth</span>
+                </div>
+                <a href="https://github.com/Dhanesh635" class="featured-link" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
+                </a>
+              </div>
+            </article>
 
-        <article class="project-card" role="listitem">
-          <div class="project-preview">
-            <div class="preview-placeholder" role="img" aria-label="BlogAgentic AI preview">
-              <i class="fas fa-robot" aria-hidden="true"></i>
-            </div>
+            <!-- Project 4: BlogAgentic -->
+            <article class="featured-project" data-project="3" aria-label="Project 4 of 4" hidden>
+              <div class="featured-project-content">
+                <span class="featured-badge-spacer" aria-hidden="true"></span>
+                <h3 class="featured-title">BlogAgentic — AI Writer</h3>
+                <p class="featured-description">
+                  An agentic AI system for automated blog generation. Uses LangGraph for multi-step orchestration and Groq for fast inference. The system supports multi-language content generation and can produce SEO-optimized articles with proper structure and formatting.
+                </p>
+                <div class="featured-tech">
+                  <span>Python</span>
+                  <span>LangGraph</span>
+                  <span>FastAPI</span>
+                </div>
+                <a href="https://github.com/Dhanesh635/BlogAgentic" class="featured-link" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
+                </a>
+              </div>
+            </article>
           </div>
-          <div class="project-info">
-            <h3>BlogAgentic — AI Writer</h3>
-            <p>
-              An agentic AI system for automated blog generation. Uses LangGraph for orchestration and Groq for fast inference, with multi-language support.
-            </p>
-            <div class="tech-stack" aria-label="Technologies used">
-              <span class="tech">Python</span>
-              <span class="tech">LangGraph</span>
-              <span class="tech">FastAPI</span>
-            </div>
-            <div class="card-links">
-              <a href="https://github.com/Dhanesh635/BlogAgentic" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View BlogAgentic on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </article>
 
+          <button class="project-nav project-nav--next" aria-label="Next project" id="project-next">
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Pagination dots - below the card -->
+        <div class="project-dots" role="tablist" aria-label="Project navigation">
+          <button class="project-dot active" role="tab" aria-selected="true" aria-label="Project 1" data-index="0"></button>
+          <button class="project-dot" role="tab" aria-selected="false" aria-label="Project 2" data-index="1"></button>
+          <button class="project-dot" role="tab" aria-selected="false" aria-label="Project 3" data-index="2"></button>
+          <button class="project-dot" role="tab" aria-selected="false" aria-label="Project 4" data-index="3"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -469,12 +488,14 @@
   <!-- Contact Section -->
   <section id="contact" class="contact fade-in" aria-labelledby="contact-title">
     <div class="contact-container">
-      <span class="section-tag">Contact</span>
-      <h2 id="contact-title">Let's <span class="accent">Talk</span></h2>
-      <p>
-        I'm open to internships, freelance projects, and interesting collaborations. 
-        If you have something in mind, I'd like to hear about it.
-      </p>
+      <div class="section-header">
+        <span class="section-tag">Contact</span>
+        <h2 id="contact-title">Let's <span class="accent">Talk</span></h2>
+        <p class="section-desc">
+          I'm open to internships, freelance projects, and interesting collaborations. 
+          If you have something in mind, I'd like to hear about it.
+        </p>
+      </div>
 
       <a href="mailto:dhaneshsharma635@gmail.com" class="btn btn-primary btn-large">
         <i class="fas fa-envelope" aria-hidden="true"></i> Send Email
